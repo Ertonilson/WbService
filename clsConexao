@@ -1,0 +1,25 @@
+<?php
+class ConexaoBanco {
+	//Propriedade Estática referenciando um Tipo da mesma Classe
+	static $instancia = false;
+
+	private $server = "localhost";
+	private $user = "root";
+	private $password = "vertrigo";
+	private $conexao;
+
+	//Construtor private - Não é possível utilizar new em outras classes
+
+	private function_construct() {
+
+			//faz a conexao com o banco de dados
+			$this->conexao = mysql_connect($this->server, $this->user, $this->password);
+			}
+
+			//Metodo para recuperar instancia
+			public function getInstancia() {
+				if		(!ConexaoBanco::$instacia)
+				ConexaoBanco::$instancia = new ConexaoBanco();//chamado
+			}
+
+}
