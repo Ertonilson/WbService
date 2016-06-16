@@ -18,8 +18,21 @@ class ConexaoBanco {
 
 			//Metodo para recuperar instancia
 			public function getInstancia() {
-				if		(!ConexaoBanco::$instacia)
-				ConexaoBanco::$instancia = new ConexaoBanco();//chamado
+				if		(!ConexaoBanco::$instacia)	{
+				ConexaoBanco::$instancia = new ConexaoBanco();//chamando construtor	
+							}
+
+
+				public function getConexao() {
+							return $this->conexao;
+				}
+
+				//destrutor - destrói conexão com o banco
+				function __destruct() {
+					mysql_close($this->conexao);
+
 			}
 
 }
+
+?>
